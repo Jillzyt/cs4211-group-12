@@ -1,0 +1,660 @@
+First game:
+FZ: ‘serve_success’, ‘forehand’, 2, ‘loop’
+ML: ‘defense_success’, ‘backhand’, 3, ‘chop’
+FZ: ’attack_success, ‘backhand’, 2. ‘drive’
+ML: ‘defense_success’, ‘backhand’, 3, ‘chop’
+FZ: ‘defense_fail’, ‘backhand’, 5, ‘push’
+
+
+FZ: ‘serve_success’, ‘forehand’, 2, ‘loop’
+ML: ‘defense_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘defense_success’, ‘forehand’, 2, ‘flick’
+ML: ‘defense_success’, ‘backhand’,4, block
+FZ: ‘defense_success’, ‘backhand’, 2, ‘push’
+ML: ‘attack_fail’, ‘forehand’, 5, ‘drive’
+
+
+ML: ‘serve_success’, ‘forehand’, 3, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘push’
+ML: ‘attack_success’, ‘forehand’, 4, ‘loop’
+FZ: ‘defense_fail’, ‘forehand’, 5, ‘push’
+
+
+ML: ‘serve_success’,’forehand’, 4, ‘flick’
+FZ: ‘defense_success’, ‘backhand’, 2, ‘chop’
+ML: ‘defense_success’, ‘backhand’, 3, ‘chop’
+FZ: ‘attack_success’, ‘backhand’, 1, ‘push’
+ML: ‘defense_success’, ‘forehand’, 3, ‘drive’
+FZ: ‘defense_fail’, ‘backhand’, 5, ‘push’
+
+
+FZ: ‘serve_success’,’forehand’, 1, ‘flick’
+ML: ‘defense_success’, ‘forehand’, 3, ‘flick’
+FZ: ’attack_success’, ‘forehand’, 1, ‘loop’
+ML: ‘attack_fail’, ‘forehand’, 5, ‘loop’
+
+
+FZ: ‘serve_success’, ‘forehand’, 1, ‘flick’
+ML: ‘defense_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘attack_success’,’forehand’, 2, ‘drive’
+ML: ‘defense_fail’, ‘backhand’, 5, ‘chop’
+
+
+ML: ‘serve_success’, ‘forehand’, 3, ‘flick’
+FZ: ‘defense_success’, ‘backhand’, 1, ‘chop’
+ML: ‘defense_fail’, ‘forehand’, 5 , ‘drive’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘defense_success’,’forehand’, 1, ‘flick’
+ML: ‘attack_success’,’forehand’, 3, ‘drive’
+FZ: ‘defense_success’, ‘backhand’, 2, ‘chop’
+ML: ‘defense_success’, ‘backhand’, 3, ‘chop’
+FZ: ‘defense_success’, ‘backhand’, 2, ‘chop’
+ML: ‘defense_fail’, ‘backhand’, 5, ‘chop’
+
+
+FZ: ‘serve_success’, ‘forehand’, 2, ‘flick’
+ML: ‘attack_fail’, ‘forehand’,5, ‘flick’
+
+
+FZ: ‘‘serve_success’’, ‘forehand’, 2, ‘flick’
+ML: ‘‘attack_success’’, ‘forehand’, 4, ‘drive’
+FZ: ‘defense_success’,’forehand’, 1, ‘drive’
+ML: ‘defense_success’,’forehand’, 4, ‘drive’
+FZ: ‘attack_success’,’forehand’, 1, ‘drive’
+ML: ‘attack_success’, ‘forehand’, 4, ‘loop’
+FZ: ‘attack_success’, ‘forehand’,  2, ‘loop’
+ML: ‘attack_success’, ‘forehand’, 3, ‘drive’
+FZ: ‘defense_fail’, ‘backhand’, 5, block
+
+
+ML: ‘serve_success’,’forehand’, 4, ‘flick’
+FZ: ‘defense_fail’, ‘backhand’, 5, ‘chop’
+
+
+ML: ‘serve_success’,’forehand’, 3, ‘flick’
+FZ: ‘defense_success’,’backhand’, 2, ‘chop’
+ML: ‘attack_success’, ‘backhand’, 3, ‘lob’
+FZ: ‘attack_success’, ‘forehand’, 2, ‘drive’
+ML: ‘defense_success’, ‘backhand’, 3, block
+FZ: ‘attack_success’, ‘forehand’, 1, ‘drive’
+ML: ‘attack_success’, ‘forehand’, 4, ‘drive’
+FZ: ‘attack_fail’, ‘forehand’, 5, ‘drive’
+
+
+FZ: serve_success, ‘forehand’, 2, ‘flick’
+ML: ‘defense_success’, ‘backhand’, 4, ‘chop’
+FZ: ‘defense_success’, ‘backhand’, 2, ‘chop’
+FZ: ‘defense_fail’, ‘backhand’, 5, ‘chop’
+
+
+FZ: ‘serve_success’,’forehand’, 2, ‘flick’
+ML: ‘defense_success’, ‘backhand’, 3, ‘chop’
+FZ: ‘defense_success’, ‘backhand’, 2, ‘chop’
+ML: ‘defense_success’, ‘backhand’, 3, ‘chop’
+FZ: ‘defense_fail’, ‘backhand’, 5, ‘chop’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘defense_success’, ‘backhand’, 2, ‘chop’
+ML: ‘defense_success’, ‘backhand’, 3, ‘chop’
+FZ: ‘defense_success’, ‘backhand’, 2, ‘chop’
+ML: defense_success, ‘backhand’, 4, ‘push’
+FZ: ‘attack_success’,’forehand’, 2, ‘drive’
+ML: ‘defense_fail’, ‘forehand’, 5, ‘drive’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘attack_fail’, ‘forehand’, 2, ‘flick’
+
+
+FZ: ‘serve_success’, ‘forehand’, 2, ‘flick’
+ML: ‘defense_success’, ‘backhand’, 4, ‘chop’
+FZ: ‘attack_fail’, ‘forehand’, , ‘flick’
+
+
+FZ: ‘serve_success’, ‘forehand’, 1, ‘flick’
+ML: ‘defense_success’, ‘forehand’, 4, ‘drive’
+FZ: ‘defense_success’, ‘backhand’, 2, block
+ML: ‘defense_success’, ‘backhand’, 3, ‘chop’
+FZ: ‘attack_fail’, ‘forehand’, 5, ‘loop’
+
+
+ML : FZ - 11 : 7
+
+
+Second game:
+
+
+ML: 'serve_success', 'forehand', 3, 'loop'
+FZ: 'attack_success', 'backhand', 2, 'flick'
+ML:  'attack_success', 'backhand', 3, 'drive'
+FZ: ‘ 'attack_success', 'backhand', 2, 'flick'
+ML: ‘attack_fail’, ‘backhand’, 5, flick
+
+
+ML: 'serve_success', 'forehand', 4, 'loop'
+FZ: ‘attack_fail’, 'backhand', 5, 'flick'
+
+
+FZ: 'serve_success', 'forehand', 1, 'drive'
+ML: 'defense_success', 'forehand', 4, 'flick'
+FZ: 'defense_fail', 'forehand', 5, 'push'
+
+
+FZ: 'serve_success', 'forehand', 1, 'drive'
+ML: 'defense_success', 'forehand', 4, 'block'
+FZ: 'attack_fail', 'forehand', 5, 'smash'
+
+
+ML: 'serve_success', 'forehand', 3, 'loop'
+FZ: 'attack_success', 'backhand', 1, ‘drive’
+ML: 'defense_success', 'forehand', 3, 'chop'
+FZ: 'attack_success', 'backhand', 2, 'flick'
+ML: ‘defense_fail’, ‘backhand’,5, ‘flick’
+
+
+
+
+
+
+ML: 'serve_success', 'forehand', 3, 'loop'
+FZ: 'attack_success', 'backhand', 2, 'flick'
+ML: 'attack_success', 'backhand', 3, 'drive'
+FZ: 'attack_success', 'backhand', 2, 'loop'
+ML: 'attack_success', 'backhand', 3, 'drive'
+FZ: 'attack_success’, 'backhand', 2, 'loop’'
+ML: 'attack_success', 'backhand', 4, 'flick'
+FZ: 'attack_success’, 'forehand', 2, 'loop'
+ML: 'attack_success', 'backhand', 3, 'flick'
+FZ:  'attack_fail', 'backhand', 5, 'flick'
+
+
+FZ: 'serve_success', 'forehand', 2, 'drive'
+ML: 'defense_success', 'forehand', 4, 'push'
+FZ: 'defense_success', 'forehand', 2, 'push'
+ML: 'defense_success', 'backhand', 4, 'push'
+FZ:  'defense_success', 'forehand', 2, 'push'
+ML: 'defense_success', 'forehand', 3, 'chop'
+FZ: 'attack_success', 'backhand', 2, 'drive'
+ML:  'attack_success', 'backhand', 3, 'drive'
+FZ: 'attack_success', 'backhand', 2, 'drive'
+ML: 'attack_success', 'backhand', 4, 'loop'
+FZ: 'attack_success', 'forehand', 2, 'smash'
+ML: 'defense_success', 'backhand', 3, 'chop'
+FZ: 'attack_success', 'forehand', 2, 'smash'
+ML: ''attack_success'', 'backhand', 4, 'loop’'
+FZ: 'attack_success', 'forehand', 2, 'smash'
+ML: 'attack_success', 'backhand', 4, 'loop'
+FZ: 'attack_success', 'forehand', 2, 'smash'
+ML: 'attack_success', 'backhand', 4, 'loop'
+FZ: 'attack_success', 'forehand', 2, 'smash'
+ML: 'attack_success', 'backhand', 4, 'loop'
+FZ: 'attack_success', 'forehand', 1, 'smash'
+ML: 'attack_success', 'backhand', 4, 'loop'
+FZ: 'attack_success', 'forehand', 2, 'smash'
+ML: 'attack_success', 'backhand', 4, 'flick'
+FZ: 'attack_success', 'forehand', 2, 'smash'
+ML: 'attack_success', 'backhand', 3, 'loop'
+FZ: 'attack_success', 'forehand', 1, 'smash'
+ML:'attack_fail', 'forehand', 5, 'loop'
+
+
+FZ: 'serve_success', 'forehand', 2, 'drive'
+ML:  'defense_success', 'backhand', 4, 'push'
+FZ: 'defense_success', 'forehand', 2, 'chop'
+ML: 'attack_success', 'backhand', 3, 'flick'
+FZ: 'attack_success', 'backhand', 1, 'loop'
+ML: ‘defense_fail’, ‘forehand’, 5, ‘block’
+
+
+ML: 'serve_success', 'forehand', 3, 'loop'
+FZ: 'attack_success', 'backhand', 2, 'flick'
+ML: 'attack_success', 'backhand', 3, 'flick'
+FZ: 'attack_success', 'backhand', 2, 'flick'
+ML: 'attack_success', 'backhand', 3, 'flick'
+FZ: 'attack_success', 'backhand', 2, 'flick'
+ML: 'attack_fail’, 'backhand', 3, 'drive'
+
+
+ML: 'serve_success', 'backhand', 4, 'loop'
+FZ: 'attack_success', 'backhand', 1, 'flick'
+ML: 'attack_fail', 'backhand', 5, 'drive'
+
+
+FZ: 'serve_success', 'forehand', 2, 'drive'
+ML: 'attack_success', 'forehand', 3, 'flick
+FZ: 'attack_success', 'forehand', 2, 'flick'
+ML: 'attack_success', 'forehand', 4, 'flick'
+FZ: 'defense_fail', 'backhand', 5, 'block'
+
+
+FZ: 'serve_success', 'forehand', 1, 'drive'
+ML: 'attack_success', 'forehand', 4, 'flick'
+FZ: 'attack_success', 'forehand', 2, 'flick'
+ML: ‘'attack_success', 'backhand', 3, 'loop'
+FZ:  '’attack_success', 'backhand', 2, 'loop'
+ML: 'attack_fail', 'forehand', 5, 'loop'
+
+
+ML: 'serve_success', 'backhand', 4, 'loop'
+FZ: 'attack_success', 'backhand', 2, 'flick'
+ML: 'attack_success', 'backhand', 3, 'drive'
+FZ: 'defense_success', 'backhand', 2, 'lob'
+ML: 'attack_success', 'forehand', 4, 'smash'
+FZ: 'attack_success', 'forehand', 1, 'smash'
+ML: 'attack_success', 'forehand', 3, 'drive'
+FZ: 'attack_success', 'backhand', 2, 'drive'
+ML: 'defense_success', 'backhand', 4, 'chop'
+FZ: 'attack_success', 'forehand', 1, 'smash'
+ML: 'defense_fail', 'forehand', 5, 'block'
+
+
+ML: 'serve_success', 'backhand', 4, 'loop'
+FZ: 'attack_success', 'backhand', 2, 'flick'
+ML: 'attack_success', 'backhand', 3, 'loop'
+FZ: ‘attack_success', 'backhand', 2, 'drive' 
+ML: 'attack_success', 'backhand', 3, 'loop'
+FZ: 'attack_success', 'backhand', 2, 'loop'
+ML: 'attack_success', 'backhand', 3, 'loop'
+FZ: 'attack_success', 'backhand', 2, 'loop'
+ML: 'attack_success', 'backhand', 3, 'loop'
+FZ: ‘attack_success', 'backhand', 1, 'drive' 
+ML: ‘attack_fail', 'forehand', 5, 'drive'
+
+
+FZ: 'serve_success', 'forehand', 1, 'drive'
+ML: 'attack_success', 'forehand', 4, 'flick'
+FZ: 'attack_success', 'forehand', 1, 'flick'
+ML: 'attack_success , 'backhand', 3, 'loop'
+FZ: 'attack_success', 'backhand', 2, 'smash'
+ML: 'defense_fail', 'backhand', 3, 'chop'
+
+
+FZ: 'serve_success', 'forehand', 2, 'drive'
+ML: 'attack_success', 'forehand', 4, 'flick'
+FZ: 'attack_success', 'forehand', 2, 'flick'
+ML: 'attack_fail', 'backhand', 5, 'loop’'
+
+
+ML : FZ - 5 : 11
+
+
+Third game:
+FZ: 'serve_success', 'forehand', 2, 'flick'
+ML:'defense_success', 'backhand', 3, 'push'
+FZ: 'attack_fail', 'forehand', 5, 'loop'
+
+
+FZ: 'serve_success', 'forehand', 1, ‘flick'
+ML:'defense_success', 'backhand', 4, 'block'
+FZ:'defense_success', 'forehand', 1, 'block'
+ML:'defense_success', 'backhand', 4, 'block'
+FZ:'defense_success', 'forehand', 1, 'block'
+ML:'defense_fail', 'forehand', 5, 'block'
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', 'backhand', 2, 'push'
+ML: 'defense_success', 'backhand', 3, 'push'
+FZ: 'attack_success', 'forehand', 1, 'loop'
+ML: 'defense_success', 'forehand', 4, ‘chop'
+FZ: 'attack_fail', 'forehand', 5, 'smash'
+
+
+ML: 'serve_success', 'forehand', 3, ‘flick'
+FZ: 'defense_success', 'backhand', 2, 'push'
+ML: 'attack_success', 'backhand', 3, ‘flick'
+FZ: 'defense_fail', 'backhand', 5, 'push'
+
+
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'attack_success', 'backhand', 3, ‘flick'
+FZ: 'defense_success', 'backhand', 2, 'push'
+ML: 'attack_fail', 'forehand', 5, 'loop'
+
+
+FZ: 'serve_success', 'forehand', 1, ‘flick'
+ML: 'defense_success', 'backhand', 3, 'push'
+FZ: 'attack_fail', 'backhand', 5, ‘flick'
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'attack_success', 'backhand', 2, ‘flick'
+ML: 'attack_success', 'forehand', 3, 'loop'
+FZ: 'defense_fail', 'backhand', 5, ‘block'
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'attack_success', 'backhand', 2, ‘flick'
+ML: 'attack_fail', 'backhand', 5, ‘flick'
+
+
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'defense_success', 'backhand', 3, 'push'
+FZ: 'defense_success', 'backhand', 2, 'push'
+ML: 'attack_success', 'backhand', 3, 'loop'
+FZ: 'defense_fail', 'backhand', 5, 'push'
+
+
+FZ: 'serve_success', 'forehand', 1, ‘flick'
+ML: 'defense_success', 'backhand', 4, ‘chop’
+FZ: 'attack_success', 'forehand', 1, ‘loop'
+ML: 'defense_fail', 'forehand', 5, ‘block'
+
+
+ML: 'serve_success', 'forehand', 3, ‘flick'
+FZ: 'attack_fail', 'forehand', 5, ‘flick'
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', 'forehand', 2, ‘chop'
+ML: 'defense_success', 'forehand', 4, ‘chop'
+FZ: 'defense_success', 'forehand', 1, ‘chop'
+ML: ‘attack_fail', 'backhand', 5, ‘flick'
+
+
+FZ: 'serve_success', 'forehand', 1, ‘flick'
+ML: 'defense_success', 'forehand', 4, ‘block'
+FZ: ‘attack_success', 'forehand', 1, ‘loop'
+ML: 'defense_fail, 'forehand', 5, ‘chop'
+
+
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'defense_fail, 'forehand', 5, ‘chop'
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', 'forehand', 1, ‘block'
+ML: 'attack_success', 'forehand', 3, ‘loop'
+FZ: 'defense_fail', 'backhand', 5, ‘push'
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', 'forehand', 1, ‘block'
+ML: 'defense_success', 'forehand', 3, ‘chop'
+FZ: 'attack_fail', 'forehand', 5, ‘smash'
+
+
+FZ: 'serve_success', 'forehand', 1, ‘flick'
+ML: 'defense_success', 'forehand', 4, ‘block'
+FZ: 'defense_success', 'forehand', 1, ‘block'
+ML: 'defense_success', 'forehand', 4, ‘block'
+FZ: 'defense_fail', 'forehand', 5, ‘block'
+
+
+FZ: 'serve_success', 'forehand', 1, ‘flick'
+ML: 'defense_success', 'forehand', 4, ‘block'
+FZ: 'defense_success', 'forehand', 1, ‘block'
+ML: 'defense_success', 'forehand', 4, ‘block'
+FZ: 'attack_success', 'forehand', 1, ‘drive'
+ML: 'defense_success', 'forehand', 3, ‘block'
+FZ: 'attack_success', 'forehand', 1, ‘loop'
+ML: 'defense_success', 'forehand', 4, ‘push'
+FZ: 'defense_fail', 'forehand', 5, ‘block'
+
+
+ML : FZ - 11 - 7
+
+
+Fourth game:
+
+
+ML: ‘serve_success’, ‘forehand’, 3, ‘loop’
+FZ: ‘attack_success’, ‘backhand’, 1, ‘flick’
+ML: ‘attack_success’, ‘forehand’, 3, ‘loop’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_fail’, ‘backhand’, 5, ‘drive’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘loop’
+FZ:  ‘defense_success’, ‘backhand’, 1, ‘push’
+ML: ‘attack_success’, ‘forehand’, 3, ‘drive’
+FZ: ‘attack_success’, ‘forehand’, 2, ‘drive’
+ML: ‘defense_fail’,  ‘forehand’, 5, ‘chop’
+
+
+FZ: ‘serve_success’, ‘forehand’, 1, ‘flick’
+ML: ‘defense_success’, ‘forehand’, 4, ‘block’
+FZ: ‘defense_fail’, ‘forehand’, 5, ‘push’
+
+
+FZ: ‘serve_success’, ‘forehand’, 1, ‘flick’
+ML: ‘defense_success’, ‘forehand’, 4, ‘block’
+FZ: ‘defense_success’, ‘forehand’, 1, ‘chop’
+ML: ‘attack_success’, ‘forehand’, 4, ‘loop’
+FZ: ‘defense_fail’, ‘forehand’, 5, ‘block’
+
+
+ML: ‘serve_success’, ‘backhand’, 4, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_success’, ‘backhand’, 3, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘defense_fail’, ‘backhand’, 5, ‘block’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘attack_success’, ‘forehand’, 2, ‘flick’
+ML: ‘defense_success’, ‘backhand’, 4, ‘block’
+FZ: ‘attack_success’, ‘forehand’, 2, ‘drive’
+ML: ‘attack_fail’, ‘backhand’, 5, ‘flick’
+
+
+FZ: ‘serve_success’, ‘forehand’, 2, ‘flick’
+ML: ‘attack_success’, ‘backhand’, 3, ‘flick’
+FZ: ‘attack_fail’, ‘forehand’, 5, ‘drive’
+
+
+FZ: ‘serve_success’, ‘forehand’, 1, ‘flick’
+ML: ‘defense_success’, ‘backhand’, 3, ‘block’
+FZ: ‘defense_success’, ‘backhand’, 1, ‘push’
+ML: ‘defense_success’, ‘forehand’, 3, ‘push’
+FZ: ‘attack_success’, ‘backhand’, 1, ‘flick’
+ML: ‘defense_fail’, ‘forehand’, 5, ‘block’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘defense_success’, ‘backhand’, 1, ‘push’
+ML: ‘attack_success’, ‘forehand’, 3, ‘drive’
+FZ: ‘attack_success’, ‘forehand’, 2, ‘flick’
+ML: ‘attack_success’, ‘backhand’, 3, ‘flick’
+FZ: ‘attack_fail’, ‘forehand’, 5, ‘flick’
+
+
+ML: ‘serve_success’, ‘forehand’, 3, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_success’, ‘forehand’, 4, ‘drive’
+FZ: ‘attack_fail’, ‘forehand’, 5, ‘loop’
+
+
+FZ: ‘serve_success’, ‘forehand’, 2, ‘flick’
+ML: ‘attack_success’, ‘backhand’, 3, ‘flick’
+FZ: ‘attack_fail’, ‘backhand’, 5, ‘flick’
+
+
+FZ: ‘serve_success’, ‘forehand’, 1, ‘flick’
+ML: ‘attack_success’, ‘forehand’, 3, ‘drive’
+FZ: ‘attack_fail’, ‘backhand’, 5, ‘flick’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘defense_success’, ‘backhand’, 3, ‘push’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘defense_fail’, ‘backhand’, 5, ‘block’ 
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_success’, ‘backhand’, 3, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_success’, ‘forehand’, 3, ‘loop’
+FZ: ‘attack_fail’, ‘backhand’, 5, ‘flick’
+
+
+FZ: ‘serve_success’, ‘forehand’, 2,  ‘flick’
+ML: ‘attack_success’, ‘backhand’, 3, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_fail’, ‘backhand’, 5, ‘flick’
+
+
+FZ: ‘serve_success’, ‘forehand’, 1, ‘flick’
+ML: ‘defense_success’, ‘forehand’, 4, ‘block’
+FZ: ‘defense_success’, ‘forehand’, 2, ‘push’
+ML: ‘attack_success’, ‘forehand’, 3, ‘drive’
+F, ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_success’, ‘backhand’, 3, ‘flick’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_fail’, ‘forehand’, 5, ‘loop’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘attack_fail’, ‘forehand’, 5, ‘flick’
+
+
+ML: ‘serve_success’, ‘forehand’, 4, ‘flick’
+FZ: ‘attack_fail’, ‘backhand’, 5, ‘flick’
+
+
+FZ: ‘serve_success’, ‘forehand’, 2, ‘flick’
+ML: ‘defense_success’, ‘backhand’, 4, ‘push’
+FZ: ‘attack_success’, ‘backhand’, 2, ‘flick’
+ML: ‘attack_success’, ‘forehand’, 4, ‘loop’
+FZ: ‘defense_fail’, ‘forehand’, 5, ‘block’
+
+
+ML : FZ - 11 - 8
+
+
+Fifth game:
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'attack_success', 'backhand', 3, ‘flick'
+FZ: 'attack_success', 'backhand', 2, ‘drive’
+ML: 'attack_success', 'backhand', 3, ‘drive’
+FZ: 'attack_success', 'backhand', 2, ‘flick’
+ML: 'attack_success', 'backhand', 3, ‘drive’
+FZ: 'defense_success', 'backhand', 2, ‘loop’
+ML: 'attack_success', 'backhand', 3, ‘drive’
+FZ: 'attack_fail', 'backhand', 5, ‘flick’
+
+
+FZ: 'serve_success', 'forehand', 1, ‘flick'
+ML: 'defense_success', ‘forehand’, 4, ‘push’
+FZ: 'attack_success', ‘forehand’, 2, ‘smash’
+ML: 'defense_success', ‘forehand’, 3, ‘chop’
+FZ: 'defense_success', ‘forehand’, 2, ‘push’
+ML: 'attack_fail', ‘forehand’, 5, ‘smash’
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'attack_success', 'backhand', 2, ‘flick'
+ML: 'attack_success', ‘backhand’, 3, ‘loop’
+FZ: 'attack_fail', 'forehand', 5, ‘smash’
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', ‘forehand’, 2, ‘push’
+ML: 'attack_success', ‘backhand’, 4, ‘smash’
+FZ: 'defense_success', ‘forehand’, 2, ‘block’
+ML: 'attack_success', ‘backhand’, 3, ‘flick'
+FZ: 'attack_success', 'backhand', 2, ‘loop'
+ML: 'defense_success', ‘backhand’, 4, ‘block’
+FZ: 'attack_success', ‘forehand’, 2, ‘smash’
+ML: 'defense_success', ‘backhand’, 3, ‘block’
+FZ: 'attack_success', ‘backhand’, 2, ‘loop’
+ML: 'defense_success', ‘backhand’, 3, ‘block’
+FZ: 'attack_success', ‘backhand’, 2, ‘smash’
+ML: 'defense_success', ‘backhand’, 3, ‘block’
+FZ: 'attack_success', ‘backhand’, 2, ‘loop’
+ML: 'defense_success', ‘backhand’, 3, ‘block’
+FZ: 'attack_success', ‘forehand’, 2, ‘smash’
+ML: 'defense_success', ‘backhand’, 3, ‘block’
+FZ: 'attack_success', ‘backhand’, 2, ‘smash’
+ML: 'attack_success', ‘forehand’, 3, ‘loop’
+FZ: 'attack_fail', ‘backhand’, 5, ‘smash’
+
+
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'defense_success', ‘backhand’, 3, ‘block’
+FZ: ‘defense_fail’, 'forehand', 5, ‘push’
+
+
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'attack_success', ‘backhand’, 3, ‘flick’
+FZ: 'attack_success', ‘backhand’, 2, ‘flick'
+ML: 'attack_success', ‘backhand’, 3, ‘loop’
+FZ: 'attack_success', ‘backhand’, 2, ‘drive’
+ML: 'attack_success', ‘backhand’, 3, ‘drive’
+FZ: 'attack_fail', ‘backhand’, 5, ‘flick'
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', ‘forehand’, 2, ‘push’
+ML: 'defense_success', ‘forehand’, 4, ‘push’
+FZ: 'attack_fail', ‘forehand’, 5, ‘smash’
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', ‘forehand’, 1, ‘push’
+ML: 'defense_success', ‘forehand’, 4, ‘push’
+FZ: 'defense_success', ‘forehand’, 2, ‘lob’
+ML: 'attack_success', ‘forehand’, 4, ‘smash’
+FZ: ‘defense_fail’, ‘forehand’, 5, ‘block’
+
+
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'defense_success', ‘forehand’, 4, ‘push’
+FZ: ‘defense_fail’, ‘forehand’, 5, ‘push’
+
+
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'defense_success', ‘forehand’, 4, ‘push’
+FZ: 'attack_success', ‘forehand’, 1, ‘flick’
+ML: 'attack_fail', ‘forehand’, 5, ‘loop’
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', ‘backhand’, 1, ‘push’
+ML: 'defense_success', ‘forehand’, 3, ‘push’
+FZ: 'attack_success', ‘backhand’, 2, ‘flick’
+ML: ‘defense_fail’, ‘backhand’, 5, ‘block’
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', ‘backhand’, 1, ‘push’
+ML: 'defense_success', ‘forehand’, 4, ‘push’
+FZ: 'attack_success', ‘forehand’, 1, ‘loop’
+ML: ‘defense_fail’, ‘forehand’, 5, ‘block’
+
+
+FZ: 'serve_success', 'forehand', 2, ‘flick'
+ML: 'defense_success', ‘backhand’, 4, ‘block’
+FZ: 'attack_success', ‘backhand’, 2, ‘loop’
+ML: 'attack_success', ‘backhand’, 3, ‘drive’
+FZ: 'attack_success', ‘backhand’, 2, ‘flick’
+ML: 'attack_success', ‘backhand’, 3, ‘loop’
+FZ: 'attack_fail', ‘backhand’, 5, ‘loop’
+
+
+FZ: 'serve_success', 'forehand', 1, ‘flick'
+ML: 'defense_success', ‘forehand’, 3, ‘push’
+FZ: 'attack_success', ‘backhand’, 1, ‘loop’
+ML: 'attack_success', ‘forehand’, 3, ‘drive’
+FZ: 'attack_fail', ‘backhand’, 5, ‘loop’
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', ‘forehand’, 1, ‘push’
+ML: 'defense_success', ‘forehand’, 3, ‘push’
+FZ: 'attack_success', ‘forehand’, 2, ‘smash’
+ML: 'attack_fail', ‘forehand’, 5, ‘smash’
+
+
+ML: 'serve_success', 'forehand', 4, ‘flick'
+FZ: 'defense_success', ‘forehand’, 1, ‘push’
+ML: 'attack_success', ‘forehand’, 4, ‘smash’
+FZ: ‘defense_fail’, ‘forehand’, 5, ‘block’
+
+
+ML : FZ - 11 - 5

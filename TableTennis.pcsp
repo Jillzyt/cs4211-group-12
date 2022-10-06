@@ -1,0 +1,243 @@
+﻿
+#define matchPoint 11;
+var serve_counter = 0;
+
+enum{ml, fzd, na};
+
+var turn = na; //serve turn;
+var won = na;
+var ball = 5;
+
+var mlScore = 0;
+var fzdScore = 0;
+
+TieBreakGame = whoServeFirst; (mlServe [] fzdServe);
+whoServeFirst = []i:{ml, fzd}@TossCoin{if (i == ml) {turn = 0; serve_counter = 0;} else {turn = 2; serve_counter = 2;}} -> Skip;
+
+mlServe = [won == na && (turn == 0)]mlReady_serve -> mlServeGame [] [ won == na && (turn == 1)]mlReady_serve -> mlServeGame;
+fzdServe = [won == na && (turn == 2)]fzdReady_serve -> fzdServeGame [] [ won == na && (turn == 3)] fzdReady_serve-> fzdServeGame;
+
+NextPt = mlServe [] fzdServe[] ([won != na] GameOver->Skip);
+
+// MA LONG SECTION
+
+//Ma Long Serve Actions
+mlServeGame() = pcase{
+	56: serveSuccFH{ball = 2; serve_counter++} -> fzdRallyActions
+	44: serveSuccFH{ball = 1; serve_counter++} -> fzdRallyActions
+	0: serveFailFH{ball = 2} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore) {// If fzd reach 11 and ML does not reach 11 yet
+			won = fzd;
+		} else if (fzdScore > matchPoint + 1 && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
+			won = fzd;
+		}} -> NextPt
+		
+	0: serveFailFH{ball =1} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore) {// If fzd reach 11 and ML does not reach 11 yet
+			won = fzd;
+		} else if (fzdScore > matchPoint + 1 && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
+			won = fzd;
+		}} -> NextPt
+};
+
+// Ma Long Rally Actions
+mlRallyActions = pcase {
+	12: defenseSuccBH{ball=3} -> fzdRallyActions
+	8:  defenseSuccBH{ball=4} -> fzdRallyActions
+	13: defenseSuccFH{ball=3} -> fzdRallyActions
+	6:  defenseSuccFH{ball=4} -> fzdRallyActions
+	7:  attackSuccFH{ball=3} -> fzdRallyActions
+	7:  attackSuccFH{ball=4} -> fzdRallyActions
+	21: attackSuccBH{ball=3} -> fzdRallyActions
+	5:  attackSuccBH{ball=4} -> fzdRallyActions
+	4:  defenseFailBH{ball=5} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore) { // If fzd reach 11 and ml does not reach 11 yet
+			won = fzd;
+		} else if (fzdScore > matchPoint + 1 && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
+			won = fzd;
+		}
+		else {
+			if (serve_counter % 4 == 0) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 1) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 2) {
+				serve_counter++;
+				turn = fzd;
+			} else if (serve_counter % 4 == 3) {
+				serve_counter++;
+				turn = fzd;
+			}
+		}} -> NextPt
+	6: defenseFailFH{ball = 5} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore) {// If fzd reach 11 and ml does not reach 11 yet
+			won = fzd;
+		} else if (fzdScore > matchPoint + 1 && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
+			won = fzd;
+		}
+		else {
+			if (serve_counter % 4 == 0) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 1) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 2) {
+				serve_counter++;
+				turn = fzd;
+			} else if (serve_counter % 4 == 3) {
+				serve_counter++;
+				turn = fzd;
+			}
+		}} -> NextPt
+	6: attackFailFH{ball=5} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore) {// If fzd reach 11 and ml does not reach 11 yet
+			won = fzd;
+		} else if (fzdScore > matchPoint + 1 && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
+			won = fzd;
+		}
+		else {
+			if (serve_counter % 4 == 0) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 1) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 2) {
+				serve_counter++;
+				turn = fzd;
+			} else if (serve_counter % 4 == 3) {
+				serve_counter++;
+				turn = fzd;
+			}
+		}} -> NextPt
+	5: attackFailBH{ball=5} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore) { // If fzd reach 11 and ml does not reach 11 yet
+			won = fzd;
+		} else if (fzdScore > matchPoint + 1 && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
+			won = fzd;
+		}
+		else {
+			if (serve_counter % 4 == 0) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 1) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 2) {
+				serve_counter++;
+				turn = fzd;
+			} else if (serve_counter % 4 == 3) {
+				serve_counter++;
+				turn = fzd;
+			}
+		}} -> NextPt
+};
+
+// ZE DONG SECTION
+
+// Ze Dong Serve Actions
+fzdServeGame() = pcase{
+	56: serveSuccFH{ball = 2; serve_counter++} -> mlRallyActions
+	44: serveSuccFH{ball = 1; serve_counter++} -> mlRallyActions
+	0: serveFailFH{ball = 2} -> {mlScore++; if (mlScore == matchPoint && fzdScore != mlScore) {
+			won = ml;
+		} else if (mlScore > matchPoint + 1 && mlScore - fzdScore >= 2) {
+			won = ml;
+		}} -> NextPt
+	0: serveFailFH{ball=1} -> {mlScore++; if (mlScore == matchPoint && fzdScore != mlScore) {
+			won = ml;
+		} else if (mlScore > matchPoint + 1 && mlScore - fzdScore >= 2) {
+			won = ml;
+		}} -> NextPt
+};
+
+fzdRallyActions = pcase {
+	3: defenseSuccBH{ball = 1} -> mlRallyActions
+	8: defenseSuccBH{ball = 2} -> mlRallyActions
+	8: defenseSuccFH{ball = 1} -> mlRallyActions
+	6: defenseSuccFH{ball = 2} -> mlRallyActions
+	8: attackSuccFH{ball = 1} -> mlRallyActions
+	12: attackSuccFH{ball = 2} -> mlRallyActions
+	4: attackSuccBH{ball = 1} -> mlRallyActions
+	25: attackSuccBH{ball = 2} -> mlRallyActions
+	6: defenseFailBH{ball = 5} -> {mlScore++; if (mlScore == matchPoint && fzdScore != mlScore) {
+			won = ml;
+		} else if (mlScore > matchPoint + 1 && mlScore - fzdScore >= 2) {
+			won = ml;
+		}
+		else {
+			if (serve_counter % 4 == 0) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 1) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 2) {
+				serve_counter++;
+				turn = fzd;
+			} else if (serve_counter % 4 == 3) {
+				serve_counter++;
+				turn = fzd;
+			}
+		}} -> NextPt
+	6: defenseFailFH{ball=5} -> {mlScore++; if (mlScore == matchPoint && fzdScore != mlScore) {
+			won = ml;
+		} else if (mlScore > matchPoint + 1 && mlScore - fzdScore >= 2) {
+			won = ml;
+		}
+		else {
+			if (serve_counter % 4 == 0) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 1) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 2) {
+				serve_counter++;
+				turn = fzd;
+			} else if (serve_counter % 4 == 3) {
+				serve_counter++;
+				turn = fzd;
+			}
+		}} -> NextPt
+	8: attackFailFH{ball=5} -> {mlScore++; if (mlScore == matchPoint && fzdScore != mlScore) {
+			won = ml;
+		} else if (mlScore > matchPoint + 1 && mlScore - fzdScore >= 2) {
+			won = ml;
+		}
+		else {
+			if (serve_counter % 4 == 0) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 1) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 2) {
+				serve_counter++;
+				turn = fzd;
+			} else if (serve_counter % 4 == 3) {
+				serve_counter++;
+				turn = fzd;
+			}
+		}} -> NextPt
+	6: attackFailBH{ball=5} -> {mlScore++; if (mlScore == matchPoint && fzdScore != mlScore) {
+			won = ml;
+		} else if (mlScore > matchPoint + 1 && mlScore - fzdScore >= 2) {
+			won = ml;
+		}
+		else {
+			if (serve_counter % 4 == 0) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 1) {
+				serve_counter++;
+				turn = ml;
+			} else if (serve_counter % 4 == 2) {
+				serve_counter++;
+				turn = fzd;
+			} else if (serve_counter % 4 == 3) {
+				serve_counter++;
+				turn = fzd;
+			}
+		}} -> NextPt
+};
+
+#define player1Win won == ml;
+#assert TieBreakGame reaches player1Win with prob;
