@@ -1,23 +1,47 @@
 ﻿
 #define matchPoint 11;
+#define winPoint 2;
 var serve_counter = 0;
 
 enum{ml, fzd, na};
 
 var turn = na; //serve turn;
-var won = na;
+var wonGame = na;
+var wonSet = na;
+
 var ball = 5;
 
+// Scores //
 var mlScore = 0;
 var fzdScore = 0;
 
+// Set points // 
+var mlSetPoint = 0;
+var fzdSetPoint = 0;
+
+var currSetServer = na;
+
+// High level
+MatchPt = [mlSetPoint == 0 && fzdSetPoint == 0] TieBreakGame; [mlSetPoint != winPoint && fzdSetPoint != winPoint] nextSetGame;
+
+
+// Low level
 TieBreakGame = whoServeFirst; (mlServe [] fzdServe);
-whoServeFirst = []i:{ml, fzd}@TossCoin{if (i == ml) {turn = 0; serve_counter = 0;} else {turn = 2; serve_counter = 2;}} -> Skip;
+whoServeFirst = []i:{ml, fzd}@TossCoin{if (i == ml) {turn = 0; serve_counter = 0; currSetServer = ml} else {turn = 2; serve_counter = 2; currSetServer= fzd;}} -> Skip;
 
-mlServe = [won == na && (turn == 0)]mlReady_serve -> mlServeGame [] [ won == na && (turn == 1)]mlReady_serve -> mlServeGame;
-fzdServe = [won == na && (turn == 2)]fzdReady_serve -> fzdServeGame [] [ won == na && (turn == 3)] fzdReady_serve-> fzdServeGame;
+////////////////
+// RESET HERE (BELOW)
+setNextServer = []i:{ml, fzd}@TossCoin{if (wonSet == ml) {mlSetPoint++;} else {fzdSetPoint++;};
+        if (mlSetPoint == winPoint) {wonGame = ml;} else if (fzdSetPoint == winPoint){wonGame = fzd;};
+				if (currSetServer == ml) {turn = 2; serve_counter = 2; currSetServer = fzd; wonSet= na;} else {turn = 0; serve_counter = 0; currSetServer = ml; wonSet = na;}} -> Skip;
 
-NextPt = mlServe [] fzdServe[] ([won != na] GameOver->Skip);
+nextSetGame = setNextServer; (mlServe [] fzdServe) [] ([wonGame != na] GameOver -> Skip);
+
+
+mlServe = [wonSet == na && (turn == 0) && wonGame == na] mlReady_serve -> mlServeGame [] [ wonSet == na && (turn == 1) && wonGame == na] mlReady_serve -> mlServeGame;
+fzdServe = [wonSet == na && (turn == 2) && wonGame == na] fzdReady_serve -> fzdServeGame [] [ wonSet == na && (turn == 3) && wonGame == na] fzdReady_serve-> fzdServeGame;
+
+NextPt = mlServe [] fzdServe [] [wonSet != na] ready_nextGame -> nextSetGame;
 
 // MA LONG SECTION
 
@@ -26,9 +50,9 @@ mlServeGame() = pcase{
 	56: serveSuccFH{ball = 2; serve_counter++} -> fzdRallyActions
 	44: serveSuccFH{ball = 1; serve_counter++} -> fzdRallyActions
 	0: serveFailFH{ball = 2} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore + 1) {// If fzd reach 11 and ML does not reach 10 yet
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
-			won = fzd;
+			wonSet = fzd;
 		}
 		else if (fzdScore > matchPoint && fzdScore - mlScore < 2) {
 			serve_counter++;
@@ -40,9 +64,9 @@ mlServeGame() = pcase{
 		}} -> NextPt
 		
 	0: serveFailFH{ball =1} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore + 1) {// If fzd reach 11 and ML does not reach 10 yet
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
-			won = fzd;
+			wonSet = fzd;
 		}
 		else if (fzdScore > matchPoint && fzdScore - mlScore < 2) {
 			serve_counter++;
@@ -65,9 +89,9 @@ mlRallyActions = pcase {
 	21: attackSuccBH{ball=3} -> fzdRallyActions
 	5:  attackSuccBH{ball=4} -> fzdRallyActions
 	4:  defenseFailBH{ball=5} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore + 1) {// If fzd reach 11 and ml does not reach 10 yet
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -92,9 +116,9 @@ mlRallyActions = pcase {
 			}
 		}} -> NextPt
 	6: defenseFailFH{ball = 5} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore + 1) {// If fzd reach 11 and ml does not reach 10 yet
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -119,9 +143,9 @@ mlRallyActions = pcase {
 			}
 		}} -> NextPt
 	6: attackFailFH{ball=5} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore + 1) {// If fzd reach 11 and ml does not reach 10 yet
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -146,9 +170,9 @@ mlRallyActions = pcase {
 			}
 		}} -> NextPt
 	5: attackFailBH{ball=5} -> {fzdScore++; if (fzdScore == matchPoint && fzdScore != mlScore + 1) {// If fzd reach 11 and ml does not reach 10 yet
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore >= 2) { // If fzd has more than 11 and at least more than 2 than ML
-			won = fzd;
+			wonSet = fzd;
 		} else if (fzdScore > matchPoint && fzdScore - mlScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -181,9 +205,9 @@ fzdServeGame() = pcase{
 	56: serveSuccFH{ball = 2; serve_counter++} -> mlRallyActions
 	44: serveSuccFH{ball = 1; serve_counter++} -> mlRallyActions
 	0: serveFailFH{ball = 2} -> {mlScore++; if (mlScore == matchPoint && fzdScore + 1 != mlScore) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore >= 2) {
-			won = ml;
+			wonSet = ml;
 		}else if (fzdScore > matchPoint && fzdScore - mlScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -193,9 +217,9 @@ fzdServeGame() = pcase{
 			}
 		}} -> NextPt
 	0: serveFailFH{ball=1} -> {mlScore++; if (mlScore == matchPoint && fzdScore + 1 != mlScore) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore >= 2) {
-			won = ml;
+			wonSet = ml;
 		}else if (fzdScore > matchPoint && fzdScore - mlScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -216,9 +240,9 @@ fzdRallyActions = pcase {
 	4: attackSuccBH{ball = 1} -> mlRallyActions
 	25: attackSuccBH{ball = 2} -> mlRallyActions
 	6: defenseFailBH{ball = 5} -> {mlScore++; if (mlScore == matchPoint && fzdScore + 1 != mlScore) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore >= 2) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -243,9 +267,9 @@ fzdRallyActions = pcase {
 			}
 		}} -> NextPt
 	6: defenseFailFH{ball=5} -> {mlScore++; if (mlScore == matchPoint && fzdScore + 1 != mlScore) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore >= 2) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -270,9 +294,9 @@ fzdRallyActions = pcase {
 			}
 		}} -> NextPt
 	8: attackFailFH{ball=5} -> {mlScore++; if (mlScore == matchPoint && fzdScore + 1 != mlScore) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore >= 2) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -297,9 +321,9 @@ fzdRallyActions = pcase {
 			}
 		}} -> NextPt
 	6: attackFailBH{ball=5} -> {mlScore++; if (mlScore == matchPoint && fzdScore + 1 != mlScore) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore >= 2) {
-			won = ml;
+			wonSet = ml;
 		} else if (mlScore > matchPoint && mlScore - fzdScore < 2) {
 			serve_counter++;
 			if (serve_counter % 2 == 0) {
@@ -324,9 +348,11 @@ fzdRallyActions = pcase {
 			}
 		}} -> NextPt
 };
-
-#define malongWins won == ml;
-#define fzdWins won == fzd;
-#assert TieBreakGame deadlockfree;
-#assert TieBreakGame reaches malongWins with prob;
-#assert TieBreakGame reaches fzdWins with prob;
+#define player1Win mlSetPoint == winPoint;
+#define player2Win fzdSetPoint == winPoint;
+#assert MatchPt reaches player1Win with prob;
+//#define malongWins wonSet == ml;
+//#define fzdWins wonSet == fzd;
+//#assert TieBreakGame deadlockfree;
+//#assert TieBreakGame reaches malongWins with prob;
+//#assert TieBreakGame reaches fzdWins with prob;
