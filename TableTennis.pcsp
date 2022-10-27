@@ -1,6 +1,6 @@
 ﻿
 #define matchPoint 11;
-#define winPoint 2;
+#define winPoint 4;
 var serve_counter = 0;
 
 enum{ml, fzd, na};
@@ -33,7 +33,7 @@ whoServeFirst = []i:{ml, fzd}@TossCoin{if (i == ml) {turn = 0; serve_counter = 0
 // RESET HERE (BELOW)
 setNextServer = []i:{ml, fzd}@TossCoin{if (wonSet == ml) {mlSetPoint++;} else {fzdSetPoint++;};
         if (mlSetPoint == winPoint) {wonGame = ml;} else if (fzdSetPoint == winPoint){wonGame = fzd;};
-				if (currSetServer == ml) {turn = 2; serve_counter = 2; currSetServer = fzd; wonSet= na;} else {turn = 0; serve_counter = 0; currSetServer = ml; wonSet = na;}} -> Skip;
+				if (currSetServer == ml) {turn = 2; serve_counter = 2; currSetServer = fzd; wonSet= na;} else {turn = 0; serve_counter = 0; currSetServer = ml; wonSet = na;} mlScore = 0; fzdScore = 0;} -> Skip;
 
 nextSetGame = setNextServer; (mlServe [] fzdServe) [] ([wonGame != na] GameOver -> Skip);
 
