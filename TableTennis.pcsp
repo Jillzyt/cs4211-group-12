@@ -325,6 +325,8 @@ fzdRallyActions = pcase {
 		}} -> NextPt
 };
 
-#define player1Win won == ml;
+#define malongWins won == ml;
+#define fzdWins won == fzd;
 #assert TieBreakGame deadlockfree;
-#assert TieBreakGame reaches player1Win with prob;
+#assert TieBreakGame reaches malongWins with prob;
+#assert TieBreakGame reaches fzdWins with prob;
