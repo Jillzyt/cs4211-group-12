@@ -81,32 +81,7 @@ NextPt = mlServe [] fzdServe [] ([wonSet != na] ready_nextGame -> nextSetGame);
 			}
 			serve_counter++;
 		}}};
-#define test {
-		if (mlScore == matchPoint && fzdScore + 1 != mlScore) {
-			wonSet = ml;
-		}
-		else if (mlScore > matchPoint && mlScore - fzdScore >= 2) { // If ml reach 11 and fzd does not reach 10 yet
-			wonSet = ml;
-		}
-		if (wonSet == na) {
-			if ((fzdScore > matchPoint && fzdScore - mlScore < 2) || (mlScore > matchPoint && mlScore - fzdScore < 2)) {
-				if (serve_counter % 2 == 0) {
-					turn = ml;
-				} else {
-					turn = fzd;
-				}
-				serve_counter++;
-			}
-			else {
-				if (serve_counter % 4 == 0 || (serve_counter % 4 == 1) ) {
-					turn = ml;
-				} else {
-					turn = fzd;
-				}
-				serve_counter++;
-				}
-			}
-		};
+		
 // MA LONG SECTION
 //Ma Long Serve Actions
 mlServeGame() = pcase{
