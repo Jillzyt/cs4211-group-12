@@ -81,13 +81,33 @@ NextPt = mlServe [] fzdServe [] ([wonSet != na] ready_nextGame -> nextSetGame);
 mlServeGame() = pcase{
 	10: serveSuccFHToss{ball = 3; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	1: serveSuccFHPend{ball = 3; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccFHBackSpin{ball = 3; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccFHReversePend{ball = 3; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	
+	0: serveSuccBHToss{ball = 3; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccBHPend{ball = 3; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccBHBackSpin{ball = 3; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccBHReversePend{ball = 3; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	
 	25: serveSuccFHToss{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	2: serveSuccFHPend{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
-	4: serveSuccBHToss{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccFHBackSpin{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccFHReversePend{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	
-	0: serveFailFH{ball =3} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
-	0: serveFailFH{ball =4} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	4: serveSuccBHToss{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccBHPend{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccBHBackSpin{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: serveSuccBHReversePend{ball = 4; serve_counter++} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	
+	0: serveFailFHToss{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	0: serveFailFHPend{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	0: serveFailFHBackSpin{ball =5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	0: serveFailFHReversePend{ball =5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	
+	0: serveFailBHToss{ball =5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	0: serveFailBHPend{ball =5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	0: serveFailBHBackSpin{ball =5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	0: serveFailBHReversePend{ball =5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
 };
 
 // Ma Long Rally Actions
@@ -95,26 +115,38 @@ mlRallyActionsToPosThree = pcase {
 	9: defSuccBHChop{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	8: defSuccBHBlock{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	5: defSuccBHPush{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: defSuccBHLob{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 
 	2: defSuccFHBlock{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	4: defSuccFHChop{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	4: defSuccFHPush{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: defSuccFHLob{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	
 	6:  attSuccFHLoop{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	8:  attSuccFHDrive{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	1:  attSuccFHFlick{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0:  attSuccFHSmash{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	
 	12:  attSuccBHLoop{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	10:  attSuccBHDrive{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	16:  attSuccBHFlick{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0:  attSuccBHSmash{ball=3} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	
 	3:  defFailBHChop{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
 	3:  defFailBHBLock{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	3: defFailBHPush{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	3: defFailBHLob{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	
 	7: defFailFHBLock{ball = 5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
 	3: defFailFHChop{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	3: defFailFHPush{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	3: defFailFHLob{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+
 	5: attFailBHFlick{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
 	2: attFailBHLoop{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
 	3: attFailBHDrive{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	0: attFailBHSmash{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
+	
 	3: attFailFHDrive{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
 	6: attFailFHLoop{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
 	1: attFailFHFlick{ball=5} -> {fzdScore++; call(determineNextServer, 0);} -> NextPt
@@ -125,10 +157,12 @@ mlRallyActionsToPosFour = pcase {
 	4: defSuccBHChop{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	6: defSuccBHBlock{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	5: defSuccBHPush{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: defSuccBHLob{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	
 	10: defSuccFHBlock{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	4: defSuccFHChop{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	4: defSuccFHPush{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0: defSuccFHLob{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	
 	6:  attSuccFHLoop{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	3:  attSuccFHDrive{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
@@ -136,6 +170,7 @@ mlRallyActionsToPosFour = pcase {
 	3:  attSuccFHSmash{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	
 	6:  attSuccBHLoop{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
+	0:  attSuccBHDrive{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	2:  attSuccBHFlick{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 	1:  attSuccBHSmash{ball=4} -> (fzdRallyActionsToOne [] fzdRallyActionsToTwo)
 };
@@ -143,29 +178,52 @@ mlRallyActionsToPosFour = pcase {
 // ZE DONG SECTION
 // Ze Dong Serve Actions
 fzdServeGame() = pcase{
+	0: serveSuccFHToss{ball = 1; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	9: serveSuccFHReversePend{ball = 1; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	8: serveSuccFHPend{ball = 1; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	3: serveSuccFHBackSpin{ball = 1; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	
+	0: serveSuccBHToss{ball = 1; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: serveSuccBHReversePend{ball = 1; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: serveSuccBHPend{ball = 1; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: serveSuccBHBackSpin{ball = 1; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	
+	0: serveSuccFHToss{ball = 2; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	13: serveSuccFHReversePend{ball = 2; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	11: serveSuccFHPend{ball = 2; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	1: serveSuccFHBackSpin{ball = 2; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	
-	0: serveFailFH{ball=1} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
-	0: serveFailFH{ball = 2} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
+	0: serveSuccBHToss{ball = 2; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: serveSuccBHReversePend{ball = 2; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: serveSuccBHPend{ball = 2; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: serveSuccBHBackSpin{ball = 2; serve_counter++} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	
+	0: serveFailFHToss{ball=5} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
+	0: serveFailFHPend{ball=5} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
+	0: serveFailFHBackSpin{ball =5} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
+	0: serveFailFHReversePend{ball =5} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
+	
+	0: serveFailBHToss{ball=5} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
+	0: serveFailBHPend{ball=5} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
+	0: serveFailBHBackSpin{ball=5} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
+	0: serveFailBHReversePend{ball=5} -> {mlScore++; call(determineNextServer, 1);} -> NextPt
 };
 
 fzdRallyActionsToOne = pcase {
 	1: defSuccBHChop{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	5: defSuccBHPush{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
-
-	7: defSuccFHBlock{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: defSuccBHBlock{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: defSuccBHLob{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	
 	2: defSuccFHChop{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	3: defSuccFHPush{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
-		
+	7: defSuccFHBlock{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: defSuccFHLob{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	
 	2: attSuccBHDrive{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	4: attSuccBHFlick{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	2: attSuccBHLoop{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	0: attSuccBHSmash{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	
 	3: attSuccFHDrive{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	2: attSuccFHFlick{ball=1} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
@@ -175,14 +233,17 @@ fzdRallyActionsToOne = pcase {
 	4: defFailBHPush{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	3: defFailBHBlock{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	3: defFailBHChop{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	0: defFailBHLob{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	
 	5: defFailFHPush{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	6: defFailFHBlock{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
-	
+	0: defFailFHChop{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	0: defFailFHLob{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	
 	3: attFailBHLoop{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	9: attFailBHFlick{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	1: attFailBHSmash{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	1: attFailBHDrive{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	
 	2: attFailFHDrive{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 	5: attFailFHFlick{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
@@ -195,6 +256,11 @@ fzdRallyActionsToTwo = pcase {
 	29: attSuccBHFlick{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	9: attSuccBHLoop{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	3: attSuccBHSmash{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	
+	5: attSuccFHDrive{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	5: attSuccFHFlick{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	2: attSuccFHLoop{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	11: attSuccFHSmash{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 
 	6: defSuccFHPush{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	2: defSuccFHChop{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
@@ -205,11 +271,26 @@ fzdRallyActionsToTwo = pcase {
 	8: defSuccBHChop{ball = 2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	1: defSuccBHBlock{ball = 2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
 	1: defSuccBHLob{ball = 2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
-
-	5: attSuccFHDrive{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
-	5: attSuccFHFlick{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
-	2: attSuccFHLoop{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
-	11: attSuccFHSmash{ball=2} -> (mlRallyActionsToPosThree [] mlRallyActionsToPosFour)
+	
+	4: defFailBHPush{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	3: defFailBHBlock{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	3: defFailBHChop{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	0: defFailBHLob{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	
+	5: defFailFHPush{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	6: defFailFHBlock{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	0: defFailFHChop{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	0: defFailFHLob{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	
+	3: attFailBHLoop{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	9: attFailBHFlick{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	1: attFailBHSmash{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	1: attFailBHDrive{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	
+	2: attFailFHDrive{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	5: attFailFHFlick{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	3: attFailFHLoop{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
+	5: attFailFHSmash{ball=5} -> {mlScore++; call(determineNextServer, 1)} -> NextPt
 };
 
 #define malongWins mlSetPoint == winPoint;
