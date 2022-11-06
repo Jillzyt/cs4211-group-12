@@ -21,8 +21,8 @@ var fzdSetPoint = 0;
 var currSetServer = na;
 
 // High level
-MatchPt = [mlSetPoint == 0 && fzdSetPoint == 0] TieBreakGame;
-TieBreakGame = whoServeFirst; (mlServe [] fzdServe);
+MatchPt = [mlSetPoint == 0 && fzdSetPoint == 0] InitiateGame;
+InitiateGame = whoServeFirst; (mlServe [] fzdServe);
 whoServeFirst = []i:{ml, fzd}@TossCoin{if (i == ml) {turn = ml; serve_counter = 0; currSetServer = ml} else {turn = fzd; serve_counter = 2; currSetServer= fzd;}} -> Skip;
 
 // Low level
