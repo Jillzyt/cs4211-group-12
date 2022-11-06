@@ -1,5 +1,5 @@
 ﻿#define matchPoint 11;
-#define winPoint 1;
+#define winPoint 4;
 var serve_counter = 0;
 
 enum{ml, fzd, na};
@@ -46,11 +46,11 @@ whoServeFirst = []i:{ml, fzd}@TossCoin{if (i == ml) {turn = ml; serve_counter = 
 		mlScore = 0; 
 		fzdScore = 0;
 		};
-
-nextSetGame = {setNextServer;} -> ([wonGame != na] GameOver -> Skip) [] mlServe [] fzdServe;
+		
+nextSetGame = {setNextServer;} -> if (wonGame != na) {Skip} else if (turn == ml) {mlServe} else {fzdServe};
 mlServe = [wonSet == na && (turn == ml) && wonGame == na] mlReady_serve -> mlServeGame;
-fzdServe = [wonSet == na && (turn == fzd) && wonGame == na] fzdReady_serve -> fzdServeGame;
-NextPt = ([wonSet != na] ready_nextGame -> nextSetGame) [] mlServe [] fzdServe;
+fzdServe = [wonSet == na && (turn == fzd) && wonGame == na] fzdReady_serve -> fzdServeGame; 
+NextPt = if (wonSet != na) {nextSetGame} else if (turn == ml) {mlServe} else {fzdServe};
 
 #define determineSetWinner(i) {if (i == 0 && (fzdScore == matchPoint && fzdScore != mlScore + 1) || (fzdScore > matchPoint && fzdScore - mlScore >= 2)) { // If fzd reach 11 and ML does not reach 10 yet
 			wonSet = fzd;
@@ -59,13 +59,12 @@ NextPt = ([wonSet != na] ready_nextGame -> nextSetGame) [] mlServe [] fzdServe;
 		}};
 		
 #define determineNextServer(i) {call(determineSetWinner, i); if (wonSet == na) {
-		if ((fzdScore > matchPoint && fzdScore - mlScore < 2) || (mlScore > matchPoint && mlScore - fzdScore < 2)) {
-			if (serve_counter % 2 == 0) {
-				turn = ml;
-			} else {
+		if ((fzdScore >= matchPoint - 1 && fzdScore - mlScore < 2) || (mlScore >= matchPoint -1 && mlScore - fzdScore < 2)) {
+			if (turn == ml) {
 				turn = fzd;
+			} else {
+				turn = ml;
 			}
-			serve_counter++;
 		}
 		else {
 			if (serve_counter % 4 == 0 || (serve_counter % 4 == 1) ) {
@@ -73,7 +72,6 @@ NextPt = ([wonSet != na] ready_nextGame -> nextSetGame) [] mlServe [] fzdServe;
 			} else {
 				turn = fzd;
 			}
-			serve_counter++;
 		}
 		}};
 		
