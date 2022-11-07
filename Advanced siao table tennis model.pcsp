@@ -195,7 +195,7 @@ mlRallyAttackActionsPosThreeBackhand = pcase {
 	10: attSuccBHDrive{ball=3} -> fzdRallyActions
 	16: attSuccBHFlick{ball=3} -> fzdRallyActions
 	0: attSuccBHSmash{ball=3} -> fzdRallyActions
-	12: mlRallyAttackActionsPosThreeBackhandFail
+	2: mlRallyAttackActionsPosThreeBackhandFail
 };
 
 mlRallyDefensiveActionsPosThreeBackhand = pcase {
@@ -367,7 +367,7 @@ fzdRallyAttackActionsPosOneForehand = pcase {
 	3:  attSuccFHDrive{ball=1} -> mlRallyActions
 	2:  attSuccFHFlick{ball=1} -> mlRallyActions
 	4:  attSuccFHSmash{ball=1} -> mlRallyActions
-	1: attFailFH{ball=5} -> fzdRallyAttackActionsPosOneForehandFail
+	9: attFailFH{ball=5} -> fzdRallyAttackActionsPosOneForehandFail
 };
 
 fzdRallyDefensiveActionsPosOneForehand = pcase {
@@ -494,8 +494,8 @@ fzdRallyActions = pcase {
 	69: PosTwoFH -> fzdRallyActionsPosTwoBackhand
 };
 
-#define malongWins mlSetPoint == winPoint;
-#define fzdWins fzdSetPoint == winPoint;
+#define malongWins wonGame == ml;
+#define fzdWins wonGame == fzd;
 #assert MatchPt() deadlockfree;
 #assert MatchPt() reaches malongWins;
 #assert MatchPt() reaches malongWins with prob;
