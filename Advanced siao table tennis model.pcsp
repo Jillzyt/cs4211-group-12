@@ -279,10 +279,10 @@ mlRallyDefensiveActionsPosFourBackhand = pcase {
 };
 
 mlRallyActions = pcase {
-	103: PosThree -> mlRallyActionsPosThreeForehand
-	214: PosThree -> mlRallyActionsPosThreeBackhand
-	133: PosFour -> mlRallyActionsPosFourForehand
-	121: PosFour -> mlRallyActionsPosFourBackhand
+	103: PosThreeFH -> mlRallyActionsPosThreeForehand
+	214: PosThreeBH -> mlRallyActionsPosThreeBackhand
+	133: PosFourFH -> mlRallyActionsPosFourForehand
+	121: PosFourBH -> mlRallyActionsPosFourBackhand
 };
 
 // ZE DONG SECTION
@@ -490,7 +490,7 @@ fzdRallyDefensiveActionsPosTwoBackhand = pcase {
 fzdRallyActions = pcase {
 	94: PosOneFH -> fzdRallyActionsPosOneForehand
 	108: PosOneBH -> fzdRallyActionsPosOneBackhand
-	153: PosTwoFH -> fzdRallyActionsPosTwoForehand 
+	152: PosTwoFH -> fzdRallyActionsPosTwoForehand 
 	228: PosTwoBH -> fzdRallyActionsPosTwoBackhand
 };
 
